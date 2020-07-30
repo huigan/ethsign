@@ -13,6 +13,7 @@
         "simplito/elliptic-php": "1.0.3",
         "kornrunner/keccak": "~1"
     },
+    "license": "MIT",
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
