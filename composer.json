@@ -8,5 +8,15 @@
             "email": "huigan3@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "PHP": "^7.0",
+        "simplito/elliptic-php": "1.0.3",
+        "kornrunner/keccak": "~1"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "huigan\\ethsign\\": "src"
+        }
+    }
 }
