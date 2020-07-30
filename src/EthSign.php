@@ -8,7 +8,7 @@
  * @author huigan <huigan3@gmail.com>
  * @license MIT
  */
-namespace huigan\EthSign;
+namespace huigan;
 
 use InvalidArgumentException;
 use Elliptic\EC;
@@ -52,16 +52,16 @@ class EthSign
      * @param string $adress
      * @return bool
      */
-    public function verify(string $msg, string $sign, string $adress)
+    public function verify(string $msg, string $sign, string $adress) : bool
     {
 
         if (strlen($sign) !== 132 ) {
             throw new InvalidArgumentException('Invalid signature length.');
         }
-        $r=substr($sign,0,66);
+        $r=substr($sign,2,64);
         $s=substr($sign,66,64);
         $v=substr($sign,-2,2);
-        $v=$v=='1c'?1:0;
+        $v=$v=='1c'?2:1;
 
         if (strlen($r) !== 64 || strlen($s) !== 64) {
             throw new InvalidArgumentException('Invalid signature length.');
@@ -73,13 +73,10 @@ class EthSign
             's' => $s
         ], $v);
         $publicKey = $publicKey->encode('hex');
+        $publicAddress=$this->publicKeyToAddress($publicKey);
         $adress=strtolower($adress);
-        $publicKey=strtolower($publicKey);
-        if(substr($adress,0,2)=='0x'){
-            return '0x' . $publicKey==$adress;
-        }else{
-            return $publicKey==$adress;
-        }
+        $publicAddress=strtolower($publicAddress);
+        return $publicAddress==$adress;
     }
 
     /**
