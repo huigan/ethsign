@@ -1,0 +1,12 @@
+{
+    "name": "huigan/ethsign",
+    "description": "ethsign",
+    "type": "library",
+    "authors": [
+        {
+            "name": "aom",
+            "email": "huigan3@gmail.com"
+        }
+    ],
+    "require": {}
+}
