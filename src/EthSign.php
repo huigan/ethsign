@@ -61,7 +61,7 @@ class EthSign
         $r=substr($sign,2,64);
         $s=substr($sign,66,64);
         $v=substr($sign,-2,2);
-        $v=$v=='1c'?2:1;
+        $v= ord(hex2bin(substr($sign, 130, 2))) - 27;
 
         if (strlen($r) !== 64 || strlen($s) !== 64) {
             throw new InvalidArgumentException('Invalid signature length.');
