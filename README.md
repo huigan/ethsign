@@ -1,4 +1,9 @@
 # EthSign
+## 安装
+
+```bash
+composer require m1guelpf/laravel-web3-login
+```
 
 ## 此代码库为以太坊中使用metamask等钱包生成的签名的验证。
 ##步骤1 前端传值 签名、消息字符、地址。如下：
