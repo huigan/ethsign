@@ -2,7 +2,7 @@
 ## 安装
 
 ```bash
-composer require m1guelpf/laravel-web3-login
+composer require huigan/ethsign
 ```
 
 ## 此代码库为以太坊中使用metamask等钱包生成的签名的验证。
